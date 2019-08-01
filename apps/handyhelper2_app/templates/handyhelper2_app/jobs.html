@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'handyhelper2_app/css/main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Handy Helper 2 Jobs</title>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Welcome, {{user.name}}! </h1>
+        <a href="/logout">Logout</a>
+        <div class='main'>
+            <div id="container">
+                <h1 id="big">jobs</h1>
+                <div id="display">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Jobs</th>
+                                <th scope="col">location</th>
+                                <th scope="col">Release Date</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for job in jobs %}
+                            <tr>
+                                <td>{{job.id}}</td>
+                                <td><a href="/{{job.id}}">{{job.job}} </a></td>
+                                <td>{{job.location}}</td>
+                                <td>{{job.releasedate}}</td>
+                                <td><a href="/{{job.id}}">View</a> <a href="/{{job.id}}/destroy">Remove</a><a href="/{{job.id}}/edit">Edit</a><a href="/new">Add</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <a href="/new">
+                    <h2>Add a new job...</h2>
+                </a>
+            </div>
+        </div>
+</body>
+
+</html>

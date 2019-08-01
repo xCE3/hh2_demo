@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'handyhelper2_app/css/main.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Handy Helper 2 Jobs</title>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Welcome, {{user.name}}! These are the job details!</h1>
+        <a href="/logout">Logout</a>
+        <div id="container">
+            <h1 id="big">Jobs Data</h1>
+            <h2>Job: {{job.job}} </h2>
+            <h2>location: {{job.location}}</h2>
+            <h2>Release Date {{job.releasedate}}</h2>
+            <h2>Description: {{job.desc}}</h2>
+            <h2>Posts by {{user.name}} </h2>
+            <h2>Created at: {{job.created_at}}</h2>
+            <a href="/{{job.id}}/edit">
+                <h2>Edit</h2>
+            </a> |
+            <a href="/{{job.id}}/destroy">
+                <h2>Delete</h2>
+            </a>
+        </div>
+</body>
+
+</html>
